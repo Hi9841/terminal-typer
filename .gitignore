@@ -1,0 +1,11 @@
+/target/
+**/*.rs.bk
+*.pdb
+*.exe
+.idea/
+.vscode/
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+
