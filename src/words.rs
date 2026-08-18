@@ -1,8 +1,9 @@
 use rand::{Rng, prelude::IndexedRandom};
 
-// Word lists from Monkeytype (https://github.com/monkeytypegame/monkeytype),
-// files frontend/static/languages/english.json and english_1k.json, both
-// ordered by frequency. Frequency-ranked common-word lists are factual data.
+// Word lists adapted from Monkeytype
+// (https://github.com/monkeytypegame/monkeytype), files
+// frontend/static/languages/english.json and english_1k.json. See
+// THIRD_PARTY_NOTICES.md for the upstream license and attribution.
 
 /// The default Monkeytype English list: the ~200 most frequent words.
 pub const COMMON_WORDS: &[&str] = &[

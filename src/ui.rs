@@ -346,7 +346,7 @@ fn caret_visible(last_input_at: Option<Instant>, now: Instant) -> bool {
     if idle < CARET_BLINK_DELAY_MS {
         true
     } else {
-        ((idle - CARET_BLINK_DELAY_MS) / CARET_BLINK_PERIOD_MS).is_multiple_of(2)
+        ((idle - CARET_BLINK_DELAY_MS) / CARET_BLINK_PERIOD_MS) % 2 == 0
     }
 }
 

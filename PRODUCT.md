@@ -33,7 +33,9 @@ The app is used in a terminal window, commonly alongside other developer tools. 
 
 ## Brand Commitments
 
-The product name is Terminal Typer. The user explicitly referenced Monkeytype as an interaction and quality reference, not as a source of copied code or assets.
+The product name is Terminal Typer. The user referenced Monkeytype as an
+interaction and quality reference. The adapted word corpus is documented in
+THIRD_PARTY_NOTICES.md.
 
 ## Evidence on Hand
 

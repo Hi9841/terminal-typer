@@ -126,7 +126,7 @@ Terminal Typer is a keyboard-driven typing practice tool designed directly for t
 
 ```bash
 # Clone repository
-git clone https://github.com/username/terminal-typer.git
+git clone https://github.com/Hi9841/terminal-typer.git
 cd terminal-typer
 
 # Run with release optimizations
@@ -176,3 +176,10 @@ cargo clippy --all-targets --all-features -- -D warnings
 
 This project is licensed under the [MIT License](LICENSE).
 
+The built-in word corpus is adapted from Monkeytype and has separate
+third-party licensing requirements. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
+## Contributing
+
+Bug reports, documentation improvements, and pull requests are welcome. See
+[CONTRIBUTING.md](CONTRIBUTING.md) for the development workflow and checks.

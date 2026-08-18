@@ -2,10 +2,13 @@
 name = "terminal-typer"
 version = "0.1.0"
 edition = "2024"
+rust-version = "1.85"
 authors = ["Terminal Typer Contributors"]
 description = "A focused, local-first typing practice instrument for the terminal"
 readme = "README.md"
 license = "MIT"
+repository = "https://github.com/Hi9841/terminal-typer"
+homepage = "https://github.com/Hi9841/terminal-typer"
 keywords = ["typing", "terminal", "tui", "ratatui", "practice"]
 categories = ["command-line-utilities"]
 
@@ -22,4 +25,3 @@ serde_json = "1.0.151"
 lto = true
 codegen-units = 1
 strip = true
-
