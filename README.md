@@ -36,7 +36,7 @@ Terminal Typer is a keyboard-driven typing practice tool designed directly for t
   - Single-keystroke rewind into committed words via backspace
   - Instant session restart (`Tab`) mid-test or on results screen
 - **Local Persistence:**
-  - Zero cloud dependencies; stores the 200 most recent sessions in local JSON
+  - Zero cloud dependencies. Stores the 200 most recent sessions in local JSON
   - Remembers user preferences between application launches
   - Atomic file writes to prevent data corruption during sudden termination
 - **Terminal Compatibility:**
@@ -78,12 +78,12 @@ Terminal Typer is a keyboard-driven typing practice tool designed directly for t
 1. **Typing Pipeline (`src/typing.rs`):**
    - **Caret & Input Buffer:** Keystrokes are buffered into a character vector. A dedicated `timeline` vector captures `(elapsed_ms, keystrokes, correct_keystrokes)` snapshots per keypress for micro-second precision analytics.
    - **Space-Commit Semantics:** When pressing `Space` before a word is fully typed, untyped characters are filled with a `SKIPPED` marker (`\u{0}`). This prevents typists from getting stuck on individual typos while ensuring uncorrected characters are penalized in accuracy and scored WPM.
-   - **Unwinding Backspace:** Pressing `Backspace` on a committed word immediately strips the entire run of `SKIPPED` characters, returning the caret to the exact position of the last physical keystroke.
+   - **Unwinding Backspace:** When you push `Backspace` on a committed word, TerminalTyper removes all of its `SKIPPED` characters. The caret goes back to the position of the last physical keystroke.
 
 2. **Metrics & Statistical Calculations:**
    - **Net WPM:**
      $$\text{WPM} = \frac{\text{Scored Correct Characters} / 5}{\text{Elapsed Minutes}}$$
-     *(In timed mode, correct partial words are credited; in word mode, only words typed completely without error score).*
+     *(In timed mode, correct partial words get credit. In word mode, only complete words without errors get a score.)*
    - **Raw WPM:**
      $$\text{Raw WPM} = \frac{\text{Total Keystrokes} / 5}{\text{Elapsed Minutes}}$$
    - **Accuracy:**
@@ -93,7 +93,7 @@ Terminal Typer is a keyboard-driven typing practice tool designed directly for t
      *where $\mu$ is the mean of the per-second WPM samples and $\sigma$ is the standard deviation.*
 
 3. **Atomic File Persistence (`src/storage.rs`):**
-   - User data is written to a temporary sibling file (`*.tmp`) and then atomically renamed over the target path (`history.json` and `settings.json`) to guarantee zero file truncation or corruption if the process is interrupted.
+   - TerminalTyper writes user data to a temporary sibling file (`*.tmp`). Then an atomic rename replaces the target file (`history.json` or `settings.json`). If the process stops, the file is not truncated or corrupted.
 
 ---
 
